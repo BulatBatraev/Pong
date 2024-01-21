@@ -1,5 +1,8 @@
+import pygame as pg
+
+
 def main():
-    print("shjdhjcs")
+    pg.init()
 
 
 if __name__ == "__main__":
