@@ -1,5 +1,6 @@
 import pygame as pg
 from sprites import Player
+from sprites import Ball
 
 
 def main():
@@ -12,7 +13,9 @@ def main():
     clock = pg.time.Clock()
     all_sprites = pg.sprite.Group()
     player = Player(width, height)
+    ball = Ball(width, height)
     all_sprites.add(player)
+    all_sprites.add(ball)
 
     run = True
     while run:

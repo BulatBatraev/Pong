@@ -23,3 +23,36 @@ class Player(pg.sprite.Sprite):
         if keys[pg.K_w] and self.rect.y >= 0:
             self.rect.y += self.speed_y * -1
 
+
+class Ball(pg.sprite.Sprite):
+    width = 30
+    height = 30
+    color = (200, 0, 0)
+    speed_x = 5
+    speed_y = -5
+
+    def __init__(self, display_width, display_height):
+        super().__init__()
+        self.image = pg.Surface((self.width, self.height))
+        self.image.fill(self.color)
+        self.rect = self.image.get_rect()
+        self.rect.center = (display_width/2, display_height/2)
+        self.display_width = display_width
+        self.display_height = display_height
+
+    def update(self):
+        self.rect.x += self.speed_x
+        self.rect.y += self.speed_y
+        if self.rect.x == 0 or self.rect.x + self.rect.width == self.display_width:
+            self.speed_x *= -1
+        if self.rect.y == 0 or self.rect.y + self.rect.height == self.display_height:
+            self.speed_y *= -1
+
+
+
+
+
+
+
+
+
